@@ -1,27 +1,255 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="main.css" rel="stylesheet">
-
-    <title>Egoist's personal website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf Ozcetin - Portfolio</title>
+    <style>
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1e1e2d;
+            --primary-text: #e0e0e0;
+            --secondary-text: #a0a0a0;
+            --accent-purple: #9d4edd;
+            --accent-glow: rgba(157, 78, 221, 0.4);
+        }
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid var(--accent-purple);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            color: #fff;
+        }
+        header p {
+            font-size: 1.3rem;
+            color: var(--accent-purple);
+            font-weight: 300;
+        }
+        .social-links {
+            margin-top: 1.5rem;
+        }
+        .social-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-purple);
+        }
+        h2 {
+            font-size: 2rem;
+            color: var(--accent-purple);
+            border-bottom: 2px solid #3a3a4a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .card {
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent-purple);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        .card-meta {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .card ul {
+            padding-left: 20px;
+            color: var(--primary-text);
+        }
+        .card li {
+            margin-bottom: 10px;
+        }
+        #skills .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        #skills .skills-list li {
+            background-color: #2a2a3a;
+            color: var(--primary-text);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid #4a4a5a;
+            transition: all 0.3s ease;
+        }
+        #skills .skills-list li:hover {
+            color: #fff;
+            background-color: var(--accent-purple);
+            border-color: var(--accent-purple);
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            border-top: 2px solid #3a3a4a;
+        }
+        footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+    </style>
 </head>
+<body>
 
-<body id="backgroundBody">
-    <div id="textBody">
-        <h1 style="font-size:300%;">Yusuf Özçetin</h1>
-        <p style="font-size:160%;">Just an egotistical developer</p>
-        <div>
-            <a href="mailto:yusufozcetin@protonmail.com" class="fa fa-envelope" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://github.com/egoistpizza" class="fa fa-github" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://stackoverflow.com/users/18005027/egoist" class="fa fa-stack-overflow" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://t.me/egoistpizza" class="fa fa-telegram" target="_blank" rel="noopener noreferrer"></a>
+    <header>
+        <div class="container">
+            <h1>Yusuf Ozcetin</h1>
+            <p>B.Sc. in Electrical & Electronics Engineering | AI & Software Development</p>
+            <div class="social-links">
+                <a href="mailto:yusufozcetin101@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/yusufozcetin" target="_blank">LinkedIn</a>
+                <a href="https://github.com/egoistpizza" target="_blank">GitHub</a>
+            </div>
         </div>
+    </header>
+
+    <div class="container">
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a B.Sc. student at Turk-Alman University pursuing Electrical and Electronics Engineering (German Track). My focus is on machine learning, computer vision, and software development. I have hands-on experience leading technical teams, such as the KAYRA Project and KIZAGAN UAV, where I developed real-time object detection and tracking algorithms using YOLO and OpenCV. I am also the Competitive Programming Team Lead at the Informatix Club, where I mentor and coach teams for ICPC and hackathons.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>C++</li>
+                <li>Rust</li>
+                <li>TensorFlow</li>
+                <li>PyTorch</li>
+                <li>OpenCV</li>
+                <li>YOLO</li>
+                <li>scikit-learn</li>
+                <li>Git</li>
+                <li>Pandas</li>
+                <li>Jupyter</li>
+            </ul>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="card">
+                <h3>Team Lead - KAYRA PROJECT</h3>
+                <p class="card-meta">Mar 2022 - Present | Adana, Turkey</p>
+                <ul>
+                    <li>Led team meetings, coordinated projects, and decision-making.</li>
+                    <li>Monitored and guided team members; reported progress.</li>
+                    <li>Participated in 2023 TEKNOFEST; authored technical reports and organized reporting.</li>
+                    <li>Developed real-time object detection & tracking algorithms.</li>
+                    <li>Collected, annotated, and preprocessed data for machine learning model training.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Board Member and Competitive Programming Team Lead - INFORMATIX CLUB</h3>
+                <p class="card-meta">Jun 2025 - Present | Istanbul, Turkey</p>
+                <ul>
+                    <li>Leading the Competitive Programming department within the university's main tech club.</li>
+                    <li>Building and coaching ICPC & international hackathon teams.</li>
+                    <li>Organizing workshops, conferences, and outreach events.</li>
+                    <li>Developing problem-solving skills and mentoring team members.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Technical Projects</h2>
+            
+            <div class="card">
+                <h3>Software Team Lead - KIZAGAN UAV</h3>
+                <p class="card-meta">Mar 2022 - Feb 2023 | Adana, Turkey</p>
+                <ul>
+                    <li>Designed and implemented deep learning-based real-time object detection and tracking systems using YOLO and OpenCV.</li>
+                    <li>Leveraged annotated datasets and applied model evaluation techniques to optimize performance metrics (e.g., precision, recall).</li>
+                    <li>Led Agile-based software development cycles; used Git for version control and milestone tracking.</li>
+                    <li>Designed data collection and labeling pipeline for AI training datasets.</li>
+                    <li>Organized technical documentation for 2023 TEKNOFEST competition.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="card">
+                <h3>Turkish-German University</h3>
+                <p class="card-meta">Expected Jun 2029 | Istanbul, Turkey</p>
+                <p>B.Sc. in Electrical and Electronics Engineering (German Track)</p>
+            </div>
+            
+            <div class="card">
+                <h3>Seyhan Borsa Istanbul Science High School</h3>
+                <p class="card-meta">Graduated Jun 2024 | Adana, Turkey</p>
+                <p>GPA: 97.58/100</p>
+                <ul>
+                    <li>Head of AI Lab; developed projects and provided mentorship.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="card">
+                <h3>Machine Learning</h3>
+                <p class="card-meta">Stanford University (via Coursera) | Aug 2022</p>
+            </div>
+        </section>
 
     </div>
-</body>
 
+    <footer>
+        <p>&copy; 2025 Yusuf Ozcetin. All rights reserved.</p>
+        <p>
+            <a href="mailto:yusufozcetin101@gmail.com">Email</a> | 
+            <a href="https://www.linkedin.com/in/yusufozcetin" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/egoistpizza" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+</body>
 </html>
