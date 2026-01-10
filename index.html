@@ -1,255 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Ozcetin - Portfolio</title>
-    <style>
-        :root {
-            --primary-bg: #121212;
-            --secondary-bg: #1e1e2d;
-            --primary-text: #e0e0e0;
-            --secondary-text: #a0a0a0;
-            --accent-purple: #9d4edd;
-            --accent-glow: rgba(157, 78, 221, 0.4);
-        }
-        body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--primary-bg);
-            color: var(--primary-text);
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 4rem 0;
-            background-color: var(--secondary-bg);
-            border-bottom: 2px solid var(--accent-purple);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            color: #fff;
-        }
-        header p {
-            font-size: 1.3rem;
-            color: var(--accent-purple);
-            font-weight: 300;
-        }
-        .social-links {
-            margin-top: 1.5rem;
-        }
-        .social-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: var(--accent-purple);
-        }
-        h2 {
-            font-size: 2rem;
-            color: var(--accent-purple);
-            border-bottom: 2px solid #3a3a4a;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-        .card {
-            background: var(--secondary-bg);
-            border-radius: 8px;
-            margin-bottom: 25px;
-            padding: 25px 30px;
-            border-left: 4px solid var(--accent-purple);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .card h3 {
-            margin-top: 0;
-            color: #fff;
-            font-size: 1.5rem;
-        }
-        .card-meta {
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        .card ul {
-            padding-left: 20px;
-            color: var(--primary-text);
-        }
-        .card li {
-            margin-bottom: 10px;
-        }
-        #skills .skills-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        #skills .skills-list li {
-            background-color: #2a2a3a;
-            color: var(--primary-text);
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            border: 1px solid #4a4a5a;
-            transition: all 0.3s ease;
-        }
-        #skills .skills-list li:hover {
-            color: #fff;
-            background-color: var(--accent-purple);
-            border-color: var(--accent-purple);
-        }
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            background-color: var(--secondary-bg);
-            color: var(--secondary-text);
-            border-top: 2px solid #3a3a4a;
-        }
-        footer a {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-    </style>
+    <title>Yusuf Özçetin | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Yusuf Ozcetin</h1>
-            <p>B.Sc. in Electrical & Electronics Engineering | AI & Software Development</p>
-            <div class="social-links">
-                <a href="mailto:yusufozcetin101@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/yusufozcetin" target="_blank">LinkedIn</a>
-                <a href="https://github.com/egoistpizza" target="_blank">GitHub</a>
+    <nav class="navbar">
+        <div class="logo">Yusuf Özçetin</div>
+        <div class="lang-switch">
+            <button onclick="setLanguage('tr')" class="lang-btn">TR</button>
+            <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+            <button onclick="setLanguage('de')" class="lang-btn">DE</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero-title">Yusuf Özçetin</h1>
+            <p data-i18n="hero-desc">Elektrik-Elektronik Mühendisliği | Teorik Informatik, Yapay Zeka & Makine Öğrenimi</p>
+            <div class="socials">
+                <a href="https://github.com/egoistpizza" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yusuf-ozcetin/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:yusufozcetin101@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</p>
         </div>
     </header>
 
-    <div class="container">
-
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I am a B.Sc. student at Turk-Alman University pursuing Electrical and Electronics Engineering (German Track). My focus is on machine learning, computer vision, and software development. I have hands-on experience leading technical teams, such as the KAYRA Project and KIZAGAN UAV, where I developed real-time object detection and tracking algorithms using YOLO and OpenCV. I am also the Competitive Programming Team Lead at the Informatix Club, where I mentor and coach teams for ICPC and hackathons.
-            </p>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>C++</li>
-                <li>Rust</li>
-                <li>TensorFlow</li>
-                <li>PyTorch</li>
-                <li>OpenCV</li>
-                <li>YOLO</li>
-                <li>scikit-learn</li>
-                <li>Git</li>
-                <li>Pandas</li>
-                <li>Jupyter</li>
-            </ul>
-        </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
+    <main class="container">
+        
+        <section class="section">
+            <h2 data-i18n="section-experience">Profesyonel Deneyim</h2>
             
             <div class="card">
-                <h3>Team Lead - KAYRA PROJECT</h3>
-                <p class="card-meta">Mar 2022 - Present | Adana, Turkey</p>
-                <ul>
-                    <li>Led team meetings, coordinated projects, and decision-making.</li>
-                    <li>Monitored and guided team members; reported progress.</li>
-                    <li>Participated in 2023 TEKNOFEST; authored technical reports and organized reporting.</li>
-                    <li>Developed real-time object detection & tracking algorithms.</li>
-                    <li>Collected, annotated, and preprocessed data for machine learning model training.</li>
+                <div class="card-header">
+                    <h3 data-i18n="exp-tdu-title">Yönetim Kurulu Başkanı</h3>
+                    <span class="date" data-i18n="exp-tdu-date">Haziran 2025 - Günümüz</span>
+                </div>
+                <h4 class="company">TDU Informatix Society</h4>
+                <ul class="details">
+                    <li data-i18n="exp-tdu-desc1">Üniversite bilgisayar bilimleri topluluğunun yönetilmesi ve geniş çaplı hackathon organizasyonlarının düzenlenmesi.</li>
+                    <li data-i18n="exp-tdu-desc2">Vize/Final dönemlerinde 100+ kişilik gruplara C ve MATLAB üzerine teknik etütlerin verilmesi.</li>
+                    <li data-i18n="exp-tdu-desc3">Rekabetçi Programlama (CP) kültürünün oluşturulması ve olimpiyat takımlarının hazırlanması.</li>
+                    <li data-i18n="exp-tdu-desc4">Teknik proje ekiplerinin kurulmasına öncülük edilmesi ve üretim odaklı kulüp yapısının tesis edilmesi.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>Board Member and Competitive Programming Team Lead - INFORMATIX CLUB</h3>
-                <p class="card-meta">Jun 2025 - Present | Istanbul, Turkey</p>
-                <ul>
-                    <li>Leading the Competitive Programming department within the university's main tech club.</li>
-                    <li>Building and coaching ICPC & international hackathon teams.</li>
-                    <li>Organizing workshops, conferences, and outreach events.</li>
-                    <li>Developing problem-solving skills and mentoring team members.</li>
+                <div class="card-header">
+                    <h3 data-i18n="exp-kayra-title">Teknik Takım Lideri</h3>
+                    <span class="date" data-i18n="exp-kayra-date">Mart 2022 - Şubat 2023</span>
+                </div>
+                <h4 class="company">KAYRA Project</h4>
+                <ul class="details">
+                    <li data-i18n="exp-kayra-desc1">TEKNOFEST süreçlerinde teknik dokümantasyon, Ar-Ge yönetimi ve proje koordinasyonunun sağlanması.</li>
+                    <li data-i18n="exp-kayra-desc2">Otonom uçuş algoritmaları ve makine öğrenmesi veri setlerinin oluşturulması/işlenmesi.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Technical Projects</h2>
-            
+        <section class="section">
+            <h2 data-i18n="section-projects">Teknik Projeler</h2>
+
             <div class="card">
-                <h3>Software Team Lead - KIZAGAN UAV</h3>
-                <p class="card-meta">Mar 2022 - Feb 2023 | Adana, Turkey</p>
-                <ul>
-                    <li>Designed and implemented deep learning-based real-time object detection and tracking systems using YOLO and OpenCV.</li>
-                    <li>Leveraged annotated datasets and applied model evaluation techniques to optimize performance metrics (e.g., precision, recall).</li>
-                    <li>Led Agile-based software development cycles; used Git for version control and milestone tracking.</li>
-                    <li>Designed data collection and labeling pipeline for AI training datasets.</li>
-                    <li>Organized technical documentation for 2023 TEKNOFEST competition.</li>
-                </ul>
+                <h3 data-i18n="proj-kizagan-title">Kızagan (İnsansız Hava Aracı)</h3>
+                <p data-i18n="proj-kizagan-desc">TEKNOFEST kapsamında geliştirilen, it dalaşı (dogfight) kabiliyetine sahip tam otonom RC uçak. PyTorch, YOLO ve OpenCV ile gerçek zamanlı nesne tespiti ve takibi sağlanmaktadır.</p>
+                <div class="tags">
+                    <span>PyTorch</span><span>YOLO</span><span>OpenCV</span><span>Autonomous Flight</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="proj-mithral-title">Mithral (Hava Savunma Sistemi)</h3>
+                <p data-i18n="proj-mithral-desc">TEKNOFEST Hava Savunma Sistemleri yarışması için geliştirilen otonom taret sistemi. Gömülü sistemler ve görüntü işleme entegrasyonu ile hedeflere en hızlı tepki süresiyle atış yapabilmektedir.</p>
+                <div class="tags">
+                    <span>Embedded Systems</span><span>Real-time Tracking</span><span>YOLO</span><span>C++</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="proj-find-title">Find (Kayıp Bulma ve Takip)</h3>
+                <p data-i18n="proj-find-desc">TEKNOFEST Turizm Teknolojileri alanı için TDU Informatix bünyesinde geliştirilen proje. UWB ve ESP teknolojileri ile 10-20 cm hassasiyetle; gürültülü ortamlarda ve afetlerde kayıp tespiti sağlayan prototip cihaz.</p>
+                <div class="tags">
+                    <span>UWB</span><span>ESP32</span><span>IEEE 802.11</span><span>Signal Processing</span>
+                </div>
             </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
+        <section class="section">
+            <h2 data-i18n="section-education">Eğitim & Sertifikalar</h2>
             
             <div class="card">
-                <h3>Turkish-German University</h3>
-                <p class="card-meta">Expected Jun 2029 | Istanbul, Turkey</p>
-                <p>B.Sc. in Electrical and Electronics Engineering (German Track)</p>
+                <h3 data-i18n="edu-uni-title">Türk-Alman Üniversitesi</h3>
+                <p data-i18n="edu-uni-desc">Elektrik-Elektronik Mühendisliği (Almanca) - Lisans</p>
+                <span class="date" data-i18n="edu-uni-date">Beklenen Mezuniyet: 2029</span>
             </div>
-            
+
             <div class="card">
-                <h3>Seyhan Borsa Istanbul Science High School</h3>
-                <p class="card-meta">Graduated Jun 2024 | Adana, Turkey</p>
-                <p>GPA: 97.58/100</p>
-                <ul>
-                    <li>Head of AI Lab; developed projects and provided mentorship.</li>
-                </ul>
+                <h3 data-i18n="cert-bielefeld-title">Universität Bielefeld - Uluslararası Yaz Okulu</h3>
+                <p data-i18n="cert-bielefeld-desc">İleri Seviye Almanca (B2/C1) ve Mekatronik Uzmanlık Projesi (4 ECTS). Ağustos 2025.</p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="cert-stanford-title">Stanford University - Machine Learning</h3>
+                <p data-i18n="cert-stanford-desc">Authorized by Stanford University and offered through Coursera. (Aug 2022)</p>
             </div>
         </section>
 
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <div class="card">
-                <h3>Machine Learning</h3>
-                <p class="card-meta">Stanford University (via Coursera) | Aug 2022</p>
+        <section class="section">
+            <h2 data-i18n="section-skills">Teknik Yetkinlikler</h2>
+            <div class="skill-grid">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Rust</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">OpenCV</span>
+                <span class="skill-tag">Embedded C</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">YOLO</span>
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2025 Yusuf Ozcetin. All rights reserved.</p>
-        <p>
-            <a href="mailto:yusufozcetin101@gmail.com">Email</a> | 
-            <a href="https://www.linkedin.com/in/yusufozcetin" target="_blank">LinkedIn</a> | 
-            <a href="https://github.com/egoistpizza" target="_blank">GitHub</a>
-        </p>
+    <footer class="footer">
+        <p>© 2026 Yusuf Özçetin. <a href="https://github.com/egoistpizza/egoistpizza.github.io" target="_blank">Source Code (GPLv3)</a></p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
