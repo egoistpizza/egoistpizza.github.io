@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="mocha">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Özçetin | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body>
 
+    <div id="cursor-glow"></div>
+
     <nav class="navbar">
         <div class="logo">Yusuf Özçetin</div>
-        <div class="lang-switch">
-            <button onclick="setLanguage('tr')" class="lang-btn">TR</button>
-            <button onclick="setLanguage('en')" class="lang-btn">EN</button>
-            <button onclick="setLanguage('de')" class="lang-btn">DE</button>
+        <div class="nav-controls">
+            <div class="theme-switch-wrapper">
+                <button id="theme-toggle" class="nav-btn"><i class="fas fa-palette"></i></button>
+                <div class="theme-dropdown" id="theme-dropdown">
+                    <span onclick="setTheme('mocha')">Mocha</span>
+                    <span onclick="setTheme('macchiato')">Macchiato</span>
+                    <span onclick="setTheme('frappe')">Frappe</span>
+                    <span onclick="setTheme('latte')">Latte</span>
+                </div>
+            </div>
+            <div class="lang-switch">
+                <button onclick="setLanguage('tr')" class="nav-btn">TR</button>
+                <button onclick="setLanguage('en')" class="nav-btn">EN</button>
+                <button onclick="setLanguage('de')" class="nav-btn">DE</button>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
             <h1 data-i18n="hero-title">Yusuf Özçetin</h1>
-            <p data-i18n="hero-desc">Elektrik-Elektronik Mühendisliği | Teorik Informatik, Yapay Zeka & Makine Öğrenimi</p>
+            <p id="typing-text" data-i18n="hero-desc"></p>
             <div class="socials">
                 <a href="https://github.com/egoistpizza" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/yusuf-ozcetin/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -33,40 +47,56 @@
 
     <main class="container">
         
-        <section class="section">
-            <h2 data-i18n="section-experience">Profesyonel Deneyim</h2>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 data-i18n="exp-tdu-title">Yönetim Kurulu Başkanı</h3>
-                    <span class="date" data-i18n="exp-tdu-date">Haziran 2025 - Günümüz</span>
-                </div>
-                <h4 class="company">TDU Informatix Society</h4>
-                <ul class="details">
-                    <li data-i18n="exp-tdu-desc1">Üniversite bilgisayar bilimleri topluluğunun yönetilmesi ve geniş çaplı hackathon organizasyonlarının düzenlenmesi.</li>
-                    <li data-i18n="exp-tdu-desc2">Vize/Final dönemlerinde 100+ kişilik gruplara C ve MATLAB üzerine teknik etütlerin verilmesi.</li>
-                    <li data-i18n="exp-tdu-desc3">Rekabetçi Programlama (CP) kültürünün oluşturulması ve olimpiyat takımlarının hazırlanması.</li>
-                    <li data-i18n="exp-tdu-desc4">Teknik proje ekiplerinin kurulmasına öncülük edilmesi ve üretim odaklı kulüp yapısının tesis edilmesi.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 data-i18n="exp-kayra-title">Teknik Takım Lideri</h3>
-                    <span class="date" data-i18n="exp-kayra-date">Mart 2022 - Şubat 2023</span>
-                </div>
-                <h4 class="company">KAYRA Project</h4>
-                <ul class="details">
-                    <li data-i18n="exp-kayra-desc1">TEKNOFEST süreçlerinde teknik dokümantasyon, Ar-Ge yönetimi ve proje koordinasyonunun sağlanması.</li>
-                    <li data-i18n="exp-kayra-desc2">Otonom uçuş algoritmaları ve makine öğrenmesi veri setlerinin oluşturulması/işlenmesi.</li>
-                </ul>
+        <section class="section reveal">
+            <h2 data-i18n="section-about">Hakkımda</h2>
+            <div class="about-grid">
+                <p class="about-text" data-i18n="about-text">
+                    Merhaba, ben Yusuf. Türk-Alman Üniversitesi'nde Elektrik-Elektronik Mühendisliği 1. sınıf öğrencisiyim. Bilgisayar biliminin teorik temelleri ve rekabetçi programlama ile ilgileniyorum. Yapay zeka ve makine öğrenimi alanında projeler geliştirirken, aynı zamanda okulumun bilişim topluluğuna liderlik ediyorum.
+                </p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section reveal">
+            <h2 data-i18n="section-experience">Profesyonel Deneyim</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="card-header">
+                            <h3 data-i18n="exp-tdu-title">Yönetim Kurulu Başkanı</h3>
+                            <span class="date" data-i18n="exp-tdu-date">Haziran 2025 - Günümüz</span>
+                        </div>
+                        <h4 class="company">TDU Informatix Society</h4>
+                        <ul class="details">
+                            <li data-i18n="exp-tdu-desc1">Üniversite bilgisayar bilimleri topluluğunun yönetilmesi ve geniş çaplı hackathon organizasyonlarının düzenlenmesi.</li>
+                            <li data-i18n="exp-tdu-desc2">Vize/Final dönemlerinde 100+ kişilik gruplara C ve MATLAB üzerine teknik etütlerin verilmesi.</li>
+                            <li data-i18n="exp-tdu-desc3">Rekabetçi Programlama (CP) kültürünün oluşturulması ve olimpiyat takımlarının hazırlanması.</li>
+                            <li data-i18n="exp-tdu-desc4">Teknik proje ekiplerinin kurulmasına öncülük edilmesi ve üretim odaklı kulüp yapısının tesis edilmesi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="card-header">
+                            <h3 data-i18n="exp-kayra-title">Teknik Takım Lideri</h3>
+                            <span class="date" data-i18n="exp-kayra-date">Mart 2022 - Şubat 2023</span>
+                        </div>
+                        <h4 class="company">KAYRA Project</h4>
+                        <ul class="details">
+                            <li data-i18n="exp-kayra-desc1">TEKNOFEST süreçlerinde teknik dokümantasyon, Ar-Ge yönetimi ve proje koordinasyonunun sağlanması.</li>
+                            <li data-i18n="exp-kayra-desc2">Otonom uçuş algoritmaları ve makine öğrenmesi veri setlerinin oluşturulması/işlenmesi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
             <h2 data-i18n="section-projects">Teknik Projeler</h2>
 
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="proj-kizagan-title">Kızagan (İnsansız Hava Aracı)</h3>
                 <p data-i18n="proj-kizagan-desc">TEKNOFEST kapsamında geliştirilen, it dalaşı (dogfight) kabiliyetine sahip tam otonom RC uçak. PyTorch, YOLO ve OpenCV ile gerçek zamanlı nesne tespiti ve takibi sağlanmaktadır.</p>
                 <div class="tags">
@@ -74,7 +104,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="proj-mithral-title">Mithral (Hava Savunma Sistemi)</h3>
                 <p data-i18n="proj-mithral-desc">TEKNOFEST Hava Savunma Sistemleri yarışması için geliştirilen otonom taret sistemi. Gömülü sistemler ve görüntü işleme entegrasyonu ile hedeflere en hızlı tepki süresiyle atış yapabilmektedir.</p>
                 <div class="tags">
@@ -82,7 +112,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="proj-find-title">Find (Kayıp Bulma ve Takip)</h3>
                 <p data-i18n="proj-find-desc">TEKNOFEST Turizm Teknolojileri alanı için TDU Informatix bünyesinde geliştirilen proje. UWB ve ESP teknolojileri ile 10-20 cm hassasiyetle; gürültülü ortamlarda ve afetlerde kayıp tespiti sağlayan prototip cihaz.</p>
                 <div class="tags">
@@ -91,38 +121,38 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section reveal">
             <h2 data-i18n="section-education">Eğitim & Sertifikalar</h2>
             
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="edu-uni-title">Türk-Alman Üniversitesi</h3>
                 <p data-i18n="edu-uni-desc">Elektrik-Elektronik Mühendisliği (Almanca) - Lisans</p>
                 <span class="date" data-i18n="edu-uni-date">Beklenen Mezuniyet: 2029</span>
             </div>
 
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="cert-bielefeld-title">Universität Bielefeld - Uluslararası Yaz Okulu</h3>
                 <p data-i18n="cert-bielefeld-desc">İleri Seviye Almanca (B2/C1) ve Mekatronik Uzmanlık Projesi (4 ECTS). Ağustos 2025.</p>
             </div>
 
-            <div class="card">
+            <div class="card reveal">
                 <h3 data-i18n="cert-stanford-title">Stanford University - Machine Learning</h3>
                 <p data-i18n="cert-stanford-desc">Authorized by Stanford University and offered through Coursera. (Aug 2022)</p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section reveal">
             <h2 data-i18n="section-skills">Teknik Yetkinlikler</h2>
-            <div class="skill-grid">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Rust</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">OpenCV</span>
-                <span class="skill-tag">Embedded C</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">YOLO</span>
+            <div class="devicon-grid">
+                <div class="dev-item" title="Python"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="dev-item" title="C++"><i class="devicon-cplusplus-plain"></i><span>C++</span></div>
+                <div class="dev-item" title="Rust"><i class="devicon-rust-plain"></i><span>Rust</span></div>
+                <div class="dev-item" title="PyTorch"><i class="devicon-pytorch-original"></i><span>PyTorch</span></div>
+                <div class="dev-item" title="TensorFlow"><i class="devicon-tensorflow-original"></i><span>TensorFlow</span></div>
+                <div class="dev-item" title="OpenCV"><i class="devicon-opencv-plain"></i><span>OpenCV</span></div>
+                <div class="dev-item" title="Embedded C"><i class="devicon-c-plain"></i><span>Embedded C</span></div>
+                <div class="dev-item" title="Git"><i class="devicon-git-plain"></i><span>Git</span></div>
+                <div class="dev-item" title="Linux"><i class="devicon-linux-plain"></i><span>Linux</span></div>
             </div>
         </section>
 
@@ -131,6 +161,8 @@
     <footer class="footer">
         <p>© 2026 Yusuf Özçetin. <a href="https://github.com/egoistpizza/egoistpizza.github.io" target="_blank">Source Code (GPLv3)</a></p>
     </footer>
+
+    <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
 </body>

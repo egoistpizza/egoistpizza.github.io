@@ -2,6 +2,8 @@ const translations = {
     tr: {
         "hero-title": "Yusuf Özçetin",
         "hero-desc": "Elektrik-Elektronik Mühendisliği | Teorik Informatik, Yapay Zeka & Makine Öğrenimi",
+        "section-about": "Hakkımda",
+        "about-text": "Merhaba, ben Yusuf. Türk-Alman Üniversitesi'nde Elektrik-Elektronik Mühendisliği 1. sınıf öğrencisiyim. Bilgisayar biliminin teorik temelleri ve rekabetçi programlama ile ilgileniyorum. Yapay zeka ve makine öğrenimi alanında projeler geliştirirken, aynı zamanda okulumun bilişim topluluğuna liderlik ediyorum.",
         "section-experience": "Profesyonel Deneyim",
         "exp-tdu-title": "Yönetim Kurulu Başkanı",
         "exp-tdu-date": "Haziran 2025 - Günümüz",
@@ -33,6 +35,8 @@ const translations = {
     en: {
         "hero-title": "Yusuf Özçetin",
         "hero-desc": "Electrical & Electronics Engineering | Theoretical Informatics, AI & Machine Learning",
+        "section-about": "About Me",
+        "about-text": "Hello, I am Yusuf. I am a first-year Electrical and Electronics Engineering student at the Turkish-German University. I have a strong interest in theoretical computer science and competitive programming. While developing projects in artificial intelligence and machine learning, I also lead the informatics community at my university.",
         "section-experience": "Professional Experience",
         "exp-tdu-title": "Chairman of the Board",
         "exp-tdu-date": "June 2025 - Present",
@@ -64,6 +68,8 @@ const translations = {
     de: {
         "hero-title": "Yusuf Özçetin",
         "hero-desc": "Elektrotechnik & Elektronik | Theoretische Informatik, KI & Maschinelles Lernen",
+        "section-about": "Über Mich",
+        "about-text": "Hallo, ich bin Yusuf. Ich bin Student der Elektrotechnik und Elektronik im ersten Jahr an der Türkisch-Deutschen Universität. Mein Interesse gilt der theoretischen Informatik und dem Competitive Programming. Während ich Projekte in den Bereichen KI und maschinelles Lernen entwickle, leite ich gleichzeitig die Informatik-Gemeinschaft meiner Universität.",
         "section-experience": "Berufserfahrung",
         "exp-tdu-title": "Vorstandsvorsitzender",
         "exp-tdu-date": "Juni 2025 - Heute",
@@ -94,16 +100,79 @@ const translations = {
     }
 };
 
+let typeInterval;
+
+function typeWriter(text, element) {
+    if (typeInterval) clearInterval(typeInterval);
+    element.innerText = "";
+    let i = 0;
+    typeInterval = setInterval(() => {
+        element.innerText += text.charAt(i);
+        i++;
+        if (i >= text.length) clearInterval(typeInterval);
+    }, 40);
+}
+
+function setTheme(themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+    localStorage.setItem('theme', themeName);
+}
+
 function setLanguage(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            element.innerText = translations[lang][key];
+            if (element.id === 'typing-text') {
+                typeWriter(translations[lang][key], element);
+            } else {
+                element.innerText = translations[lang][key];
+            }
         }
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage('tr');
+    
+    const savedTheme = localStorage.getItem('theme') || 'mocha';
+    setTheme(savedTheme);
+
+    const cursorGlow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+
+        reveals.forEach((reveal) => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
