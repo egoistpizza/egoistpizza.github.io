@@ -1,4 +1,4 @@
-/* Yusuf Özçetin — portfolio. Penrose notation sheet: paper, black ink, one blue bond. */
+/* Portfolio styles */
 
 @font-face { font-family: "Clash Grotesk"; src: url("assets/fonts/clash-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Clash Grotesk"; src: url("assets/fonts/clash-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
@@ -15,7 +15,7 @@
   --on-blue: #ffffff;
 
   --font: "Clash Grotesk", "Helvetica Neue", Arial, sans-serif;
-  /* five steps only: small, body, lead, head, display */
+  /* type scale */
   --step-small: 0.9375rem;
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-lead: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
@@ -57,7 +57,7 @@ button { font: inherit; color: inherit; }
 .skip { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip:focus { left: var(--margin); top: var(--margin); width: auto; height: auto; clip: auto; z-index: 10; background: var(--ink); color: var(--paper); padding: 10px 14px; text-decoration: none; }
 
-/* Shared bits */
+/* Shared */
 .cap { display: flex; justify-content: space-between; gap: 12px; padding-top: 8px; font-size: var(--step-small); color: var(--ink); }
 .cap span:last-child { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
 .button {
@@ -75,7 +75,7 @@ button { font: inherit; color: inherit; }
   .ul:hover { color: var(--blue); }
 }
 
-/* Penrose notation: nodes and bonds */
+/* Tensor-network diagrams */
 .chain .bond, .block-diagram .bond { stroke: var(--blue); stroke-width: 3; }
 .chain .legs line, .block-diagram .legs line { stroke: currentColor; stroke-width: 2; }
 .chain .nodes circle, .block-diagram .nodes circle { fill: var(--paper); stroke: currentColor; stroke-width: 2; }
@@ -83,7 +83,7 @@ button { font: inherit; color: inherit; }
 .block-diagram .trap { fill: var(--paper-2); stroke: none; }
 .block-diagram text { font-family: var(--font); font-size: 22px; fill: var(--ink); }
 
-/* ---------- HERO: sheet with a text cell ---------- */
+/* Hero */
 .hero { height: 100svh; min-height: 640px; overflow: hidden; position: relative; }
 .sheet {
   display: grid;
@@ -123,7 +123,7 @@ button { font: inherit; color: inherit; }
 .panel-links a { color: var(--paper); text-underline-offset: 0.22em; text-decoration-thickness: 0.06em; }
 @media (hover: hover) and (pointer: fine) { .panel-links a:hover { color: #9fb6f5; } }
 
-/* ---------- SHOWCASE ---------- */
+/* HybridQTN */
 .showcase {
   display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap);
   padding: var(--section) var(--margin) 0;
@@ -182,9 +182,18 @@ button { font: inherit; color: inherit; }
 .fig img { width: 100%; height: auto; background: #fff; }
 .fig video { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--ink); }
 .fig-wide { grid-column: 1 / -1; max-width: 820px; }
+.fig-clip { position: relative; }
+.clip-toggle {
+  position: absolute; top: 12px; right: 12px;
+  min-height: 44px; padding: 0 16px; border: 0; border-radius: 0; cursor: pointer;
+  background: var(--ink); color: var(--paper); font-size: var(--step-small);
+  transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out);
+}
+.clip-toggle:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .clip-toggle:hover { background: var(--blue); } }
 .fig .block-diagram { background: var(--paper); }
 
-/* ---------- INDEX: book spines ---------- */
+/* Project index */
 .index { padding: var(--section) var(--margin) 96px; }
 .index-head { display: flex; align-items: baseline; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
 .index-head h2 { font-size: var(--step-head); font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; }
@@ -211,7 +220,7 @@ button { font: inherit; color: inherit; }
 }
 .shelf a:focus-visible { background: var(--ink); color: var(--paper); }
 
-/* ---------- ABOUT ---------- */
+/* About */
 .about { padding: var(--section) var(--margin) 0; }
 .about-h { font-size: var(--step-head); font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 48px; }
 .about-row { display: grid; grid-template-columns: 34% 1fr; column-gap: 0; }
@@ -226,7 +235,7 @@ button { font: inherit; color: inherit; }
 .rec li { display: flex; justify-content: space-between; gap: 16px; padding: 7px 0; font-size: var(--step-body); }
 .rec li span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-/* ---------- GALLERY ---------- */
+/* Photos */
 .gallery { position: relative; min-height: 78svh; display: flex; flex-direction: column; justify-content: center; padding: var(--section) 0 0; }
 .g-title { position: relative; z-index: 2; margin: 0 var(--margin) -12px; font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
 .g-title .count { color: var(--muted); font-weight: 400; margin-left: 8px; }
@@ -238,7 +247,7 @@ button { font: inherit; color: inherit; }
 .g-row img { flex: 0 0 auto; width: 11vw; min-width: 150px; height: 26svh; min-height: 220px; object-fit: cover; scroll-snap-align: start; transition: transform 250ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .g-row img:hover { transform: scale(1.1); } }
 
-/* ---------- CONTACT ---------- */
+/* Contact */
 .contact {
   display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap); align-items: start;
   padding: 160px var(--margin) 120px;
@@ -249,7 +258,7 @@ button { font: inherit; color: inherit; }
 .contact-q { font-weight: 500; margin-bottom: 12px; }
 .contact-c { font-size: var(--step-small); color: var(--muted); margin-top: 10px; }
 
-/* ---------- FOOTER: tiles ---------- */
+/* Footer */
 .tiles {
   display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px;
   padding: 0 var(--margin) var(--margin);
@@ -278,7 +287,7 @@ button { font: inherit; color: inherit; }
   .t-cta:hover svg { transform: translate(4px, -4px); }
 }
 
-/* ---------- Motion ---------- */
+/* Motion */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 75ms); }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
@@ -292,7 +301,7 @@ button { font: inherit; color: inherit; }
   .viewer-img.is-swapping img { opacity: 0.4; }
 }
 
-/* ---------- Tablet ---------- */
+/* Tablet */
 @media (max-width: 1100px) {
   .sheet { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,2.8fr) minmax(0,1fr); }
   .sheet .col:nth-child(5), .sheet .col:nth-child(6), .sheet .col:nth-child(7) { display: none; }
@@ -315,7 +324,7 @@ button { font: inherit; color: inherit; }
   .contact-l { grid-column: 9 / -1; }
 }
 
-/* ---------- Phone ---------- */
+/* Phone */
 @media (max-width: 720px) {
   :root { --gap: 8px; --section: 96px; }
   .hero { height: auto; min-height: 0; overflow: visible; }

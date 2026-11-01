@@ -1,4 +1,4 @@
-// Yusuf Özçetin — portfolio scripts. Everything here is progressive: the page reads fully without it.
+// Portfolio scripts. The page still works without them.
 
 const CASES = {
   cju3y0pj: { unet: 0.510, hybrid: 0.973, note: 'A small polyp the U-Net breaks into fragments; the hybrid finds all of it.' },
@@ -67,7 +67,7 @@ const NAMES = { gt: 'Ground truth', unet: 'U-Net', hybrid: 'HybridQTN', none: 'F
   render();
 })();
 
-// Stagger index for entrances: each [data-reveal] counts its position within its section
+// Stagger delay for entrances, counted per section
 (() => {
   document.querySelectorAll('section').forEach((s) => {
     s.querySelectorAll('[data-reveal]').forEach((el, i) => el.style.setProperty('--i', i));
@@ -97,7 +97,7 @@ const NAMES = { gt: 'Ground truth', unet: 'U-Net', hybrid: 'HybridQTN', none: 'F
   }, 2500));
 })();
 
-// The sheet drifts: each column moves at its own rate as the hero scrolls away
+// Hero columns move at different speeds while scrolling
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const wide = matchMedia('(min-width: 721px)');
@@ -124,11 +124,18 @@ const NAMES = { gt: 'Ground truth', unet: 'U-Net', hybrid: 'HybridQTN', none: 'F
   tick(); setInterval(tick, 30000);
 })();
 
-// The clip loops muted; it stays on its poster frame for visitors who ask for less motion
+// Clip: pause button; stays paused when reduced motion is on
 (() => {
   const v = document.getElementById('clip');
-  if (!v) return;
+  const btn = document.getElementById('clip-toggle');
+  if (!v || !btn) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const apply = () => { if (reduce.matches) { v.removeAttribute('autoplay'); v.pause(); } else { v.play().catch(() => {}); } };
-  apply(); reduce.addEventListener('change', apply);
+  const sync = () => {
+    btn.textContent = v.paused ? 'Play' : 'Pause';
+  };
+  btn.addEventListener('click', () => { if (v.paused) v.play().catch(() => {}); else v.pause(); });
+  v.addEventListener('play', sync);
+  v.addEventListener('pause', sync);
+  if (reduce.matches) { v.removeAttribute('autoplay'); v.pause(); } else { v.play().catch(() => {}); }
+  sync();
 })();

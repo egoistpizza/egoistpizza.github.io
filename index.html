@@ -12,16 +12,15 @@
 <meta name="theme-color" content="#f4f3ef">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/clash-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#hybridqtn">Skip to HybridQTN</a>
 
 <main>
-  <!-- HERO: a sheet of frames with one text cell -->
   <section class="hero" aria-labelledby="name">
-    <div class="sheet" aria-hidden="false">
+    <div class="sheet">
       <div class="col" style="--off:0px">
         <figure class="frame"><img src="assets/img/talk-closeup.jpg" width="1400" height="933" alt="Yusuf presenting HybridQTN with a microphone"><figcaption class="strip s1">inzva showcase</figcaption></figure>
         <figure class="frame"><img src="assets/cases/cju3y0pj.jpg" width="480" height="480" alt="Colonoscopy frame from the Kvasir-SEG test set"><figcaption class="strip s2">Kvasir-SEG frame</figcaption></figure>
@@ -71,7 +70,6 @@
     </div>
   </section>
 
-  <!-- SHOWCASE: HybridQTN, one frame lifted and live -->
   <section class="showcase" id="hybridqtn" aria-labelledby="h-hq">
     <div class="sc-notes">
       <h2 id="h-hq" data-reveal>HybridQTN</h2>
@@ -129,6 +127,7 @@
             <source src="assets/video/cvc-seq2.webm" type="video/webm">
             <source src="assets/video/cvc-seq2.mp4" type="video/mp4">
           </video>
+          <button type="button" class="clip-toggle" id="clip-toggle">Pause</button>
           <figcaption class="cap"><span>Never trained on this hospital's data: a CVC-ClinicDB sequence</span><span>mean Dice 0.805</span></figcaption>
         </figure>
         <figure class="fig">
@@ -155,7 +154,6 @@
     </div>
   </section>
 
-  <!-- INDEX: everything else as book spines -->
   <section class="index" id="work" aria-labelledby="h-work">
     <div class="index-head">
       <h2 id="h-work" data-reveal>Everything else</h2>
@@ -195,7 +193,6 @@
     </ul>
   </section>
 
-  <!-- ABOUT: side facts, wide paragraph, two records -->
   <section class="about" id="about" aria-labelledby="h-about">
     <h2 id="h-about" class="about-h" data-reveal>About</h2>
     <div class="about-row">
@@ -233,7 +230,6 @@
     </div>
   </section>
 
-  <!-- GALLERY: small frames, wide space -->
   <section class="gallery" id="photos" aria-labelledby="h-photos">
     <h2 id="h-photos" class="g-title" data-reveal>From the room <span class="count">14 photos</span></h2>
     <div class="g-row" tabindex="0" aria-label="Photos, scroll sideways">
@@ -254,7 +250,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact" aria-labelledby="h-contact">
     <h2 id="h-contact" class="sr-only">Contact</h2>
     <p class="contact-s" data-reveal>I'm looking for research internships in efficient deep learning, tensor networks and computer vision.</p>
@@ -270,7 +265,7 @@
 
 <footer class="tiles">
   <div class="tile t-state">
-    <p class="t-big">Built by hand in HTML, CSS and a little JavaScript.</p>
+    <p class="t-big">Plain HTML, CSS and JavaScript.</p>
     <p class="t-legal">© 2026 Yusuf Özçetin. Showcase photographs from inzva AI Projects #10. Polyp images from Kvasir-SEG (Jha et al., 2020), shown for research illustration.</p>
   </div>
   <nav class="tile t-nav" aria-label="Sections">
@@ -285,6 +280,6 @@
   </a>
 </footer>
 
-<script src="main.js?v=3" defer></script>
+<script src="main.js?v=6" defer></script>
 </body>
 </html>
