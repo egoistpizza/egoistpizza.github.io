@@ -1,169 +1,290 @@
-<!DOCTYPE html>
-<html lang="tr" data-theme="mocha">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Özçetin | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yusuf Özçetin · ML research</title>
+<meta name="description" content="Yusuf Özçetin compresses neural networks with tensor networks from quantum physics. HybridQTN, projects, teaching and contact.">
+<meta property="og:title" content="Yusuf Özçetin · ML research">
+<meta property="og:description" content="Smaller segmentation networks built from tensor networks. Undergraduate researcher at Turkish-German University, Istanbul.">
+<meta property="og:image" content="https://egoistpizza.github.io/assets/img/talk-thanks.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4f3ef">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/clash-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=5">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#hybridqtn">Skip to HybridQTN</a>
 
-    <div id="cursor-glow"></div>
-
-    <nav class="navbar">
-        <div class="logo">Yusuf Özçetin</div>
-        <div class="nav-controls">
-            <div class="theme-switch-wrapper">
-                <button id="theme-toggle" class="nav-btn"><i class="fas fa-palette"></i></button>
-                <div class="theme-dropdown" id="theme-dropdown">
-                    <span onclick="setTheme('mocha')">Mocha</span>
-                    <span onclick="setTheme('macchiato')">Macchiato</span>
-                    <span onclick="setTheme('frappe')">Frappe</span>
-                    <span onclick="setTheme('latte')">Latte</span>
-                </div>
-            </div>
-            <div class="lang-switch">
-                <button onclick="setLanguage('tr')" class="nav-btn">TR</button>
-                <button onclick="setLanguage('en')" class="nav-btn">EN</button>
-                <button onclick="setLanguage('de')" class="nav-btn">DE</button>
-            </div>
+<main>
+  <!-- HERO: a sheet of frames with one text cell -->
+  <section class="hero" aria-labelledby="name">
+    <div class="sheet" aria-hidden="false">
+      <div class="col" style="--off:0px">
+        <figure class="frame"><img src="assets/img/talk-closeup.jpg" width="1400" height="933" alt="Yusuf presenting HybridQTN with a microphone"><figcaption class="strip s1">inzva showcase</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju3y0pj.jpg" width="480" height="480" alt="Colonoscopy frame from the Kvasir-SEG test set"><figcaption class="strip s2">Kvasir-SEG frame</figcaption></figure>
+        <figure class="frame"><img src="assets/img/codex-2.jpg" width="1000" height="750" alt="Award handover at the CODEX AI Hackathon demo day"><figcaption class="strip s3">CODEX AI Hackathon</figcaption></figure>
+        <figure class="frame"><img src="assets/img/talk-gesture.jpg" width="1000" height="667" alt="Yusuf explaining the method"><figcaption class="strip s4">On stage</figcaption></figure>
+      </div>
+      <div class="col" style="--off:-90px">
+        <figure class="frame"><img src="assets/cases/cju3y0pj-hybrid.png" width="480" height="480" alt="HybridQTN predicted mask"><figcaption class="strip s4">HybridQTN, Dice 0.973</figcaption></figure>
+        <figure class="frame"><img src="assets/img/team-hall.jpg" width="1200" height="800" alt="The four HybridQTN team members at inzva"><figcaption class="strip s1">The HybridQTN team</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju8a1jt.jpg" width="480" height="480" alt="Colonoscopy frame with a polyp"><figcaption class="strip s2">Kvasir-SEG frame</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju8a1jt-hybrid.png" width="480" height="480" alt="HybridQTN predicted mask"><figcaption class="strip s1">HybridQTN, Dice 0.949</figcaption></figure>
+      </div>
+      <div class="col col-panel" style="--off:-40px">
+        <figure class="frame frame-bare"><img src="assets/img/talk-room.jpg" width="1200" height="800" alt="Audience during the HybridQTN talk at Beykoz Kundura, Istanbul"></figure>
+        <div class="panel">
+          <h1 id="name"><span>Yusuf</span> <span>Özçetin</span></h1>
+          <p class="panel-line">I compress neural networks with tensor networks from quantum physics.</p>
+          <p class="panel-sub">Undergraduate researcher, EEE and Computer Engineering at Turkish-German University, Istanbul. Looking for research internships.</p>
+          <svg class="chain chain-panel" viewBox="0 0 320 44" aria-hidden="true" focusable="false">
+            <line x1="14" y1="22" x2="306" y2="22" class="bond"/>
+            <g class="legs"><line x1="14" y1="22" x2="14" y2="42"/><line x1="72" y1="22" x2="72" y2="42"/><line x1="130" y1="22" x2="130" y2="42"/><line x1="188" y1="22" x2="188" y2="42"/><line x1="246" y1="22" x2="246" y2="42"/><line x1="306" y1="22" x2="306" y2="42"/></g>
+            <g class="nodes"><circle cx="14" cy="22" r="9"/><circle cx="72" cy="22" r="9"/><circle cx="130" cy="22" r="9"/><circle cx="188" cy="22" r="9"/><circle cx="246" cy="22" r="9"/><circle cx="306" cy="22" r="9"/></g>
+          </svg>
+          <a class="button" href="mailto:yusufozcetin@proton.me?subject=Research%20internship">Email me</a>
+          <p class="panel-links"><a href="https://github.com/egoistpizza">GitHub</a><a href="https://www.linkedin.com/in/yusuf-ozcetin/">LinkedIn</a><a href="#hybridqtn">HybridQTN</a></p>
         </div>
-    </nav>
+        <figure class="frame"><img src="assets/cases/cju1c6yf.jpg" width="480" height="480" alt="Colonoscopy frame with a large polyp"><figcaption class="strip s4">Kvasir-SEG frame</figcaption></figure>
+      </div>
+      <div class="col col-panel-b" style="--off:-130px">
+        <figure class="frame"><img src="assets/cases/cju3y0pj-unet.png" width="480" height="480" alt="U-Net predicted mask with fragments"><figcaption class="strip s2">U-Net, Dice 0.510</figcaption></figure>
+        <figure class="frame"><img src="assets/img/batch-garden.jpg" width="1200" height="800" alt="Group photo of the AI Projects #10 batch in a garden"><figcaption class="strip s1">AI Projects #10 batch</figcaption></figure>
+        <figure class="frame"><img src="assets/img/codex-6.jpg" width="1000" height="563" alt="Jury and team at the CODEX AI Hackathon"><figcaption class="strip s3">CODEX, 22 May 2026</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju1c6yf-unet.png" width="480" height="480" alt="U-Net predicted mask covering half the polyp"><figcaption class="strip s4">U-Net, Dice 0.516</figcaption></figure>
+      </div>
+      <div class="col" style="--off:-20px">
+        <figure class="frame"><img src="assets/img/talk-screen.jpg" width="1200" height="800" alt="Yusuf answering questions in front of the closing slide"><figcaption class="strip s4">Questions</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju3y0pj-gt.png" width="480" height="480" alt="Ground-truth polyp mask"><figcaption class="strip s2">Ground truth</figcaption></figure>
+        <figure class="frame"><img src="assets/img/codex-4.jpg" width="750" height="1000" alt="Speaker at the CODEX AI Hackathon"><figcaption class="strip s1">CODEX demo day</figcaption></figure>
+        <figure class="frame"><img src="assets/img/team-stage.jpg" width="1200" height="800" alt="The HybridQTN team on stage"><figcaption class="strip s3">Team on stage</figcaption></figure>
+      </div>
+      <div class="col" style="--off:-70px">
+        <figure class="frame"><img src="assets/cases/cju2pjb9.jpg" width="480" height="480" alt="Colonoscopy frame with a flat polyp"><figcaption class="strip s3">Kvasir-SEG frame</figcaption></figure>
+        <figure class="frame"><img src="assets/img/talk-qa.jpg" width="1200" height="800" alt="Yusuf and a teammate on stage"><figcaption class="strip s4">The talk</figcaption></figure>
+        <figure class="frame"><img src="assets/cases/cju2pjb9-hybrid.png" width="480" height="480" alt="HybridQTN predicted mask"><figcaption class="strip s2">HybridQTN, Dice 0.956</figcaption></figure>
+        <figure class="frame"><img src="assets/img/codex-1.jpg" width="1000" height="563" alt="A team presenting at CODEX"><figcaption class="strip s1">CODEX finalists</figcaption></figure>
+      </div>
+    </div>
+  </section>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 data-i18n="hero-title">Yusuf Özçetin</h1>
-            <p id="typing-text" data-i18n="hero-desc"></p>
-            <div class="socials">
-                <a href="https://github.com/egoistpizza" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/yusuf-ozcetin/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:yusufozcetin101@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="location"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</p>
+  <!-- SHOWCASE: HybridQTN, one frame lifted and live -->
+  <section class="showcase" id="hybridqtn" aria-labelledby="h-hq">
+    <div class="sc-notes">
+      <h2 id="h-hq" data-reveal>HybridQTN</h2>
+      <p class="sc-links" data-reveal><a href="https://github.com/egoistpizza/hybrid-qtn">Code on GitHub</a></p>
+      <p class="sc-lede" data-reveal>A U-Net keeps half its parameters in the bottleneck, yet that stage only links neighbouring pixels. HybridQTN replaces it with a tensor-network block that lets every position see the whole image, and the network gets smaller and better at once.</p>
+      <dl class="facts" data-reveal>
+        <div><dt>Parameters</dt><dd>28.9M → 16.0M</dd></div>
+        <div><dt>Bottleneck alone</dt><dd>14.2M → 1.16M</dd></div>
+        <div><dt>Test Dice, Kvasir-SEG</dt><dd>0.800 → 0.836</dd></div>
+        <div><dt>Boundary error, HD95</dt><dd>18.5 px lower</dd></div>
+        <div><dt>Validation Dice 0.80 reached</dt><dd>epoch 32, not 56</dd></div>
+      </dl>
+      <p class="sc-note" data-reveal>Every one of nine seed pairs, across two GPU types and two losses, favours the hybrid. It also wins on CVC-ClinicDB, with sequence-split cross-validation and when trained only on Kvasir-SEG.</p>
+      <p class="sc-note" data-reveal>Team of four students with an academic supervisor, built during inzva's AI Projects #10. I led the methodology, designed the relative (Toeplitz) operator and built most of the training and evaluation pipeline.</p>
+    </div>
+
+    <div class="sc-stage">
+      <div class="run">
+        <figure class="lifted shutter" id="viewer">
+          <div class="viewer-img">
+            <img id="v-frame" src="assets/cases/cju3y0pj.jpg" width="480" height="480" alt="Colonoscopy test frame with the selected mask overlaid">
+            <div class="overlay" id="v-overlay" style="--m:url('assets/cases/a-cju3y0pj-hybrid.png')"></div>
+          </div>
+          <figcaption class="cap"><span id="v-name">HybridQTN</span><span id="v-fact">Dice 0.973</span></figcaption>
+        </figure>
+        <figure class="small"><img id="r-gt" src="assets/cases/cju3y0pj-gt.png" width="480" height="480" alt="Ground-truth mask"><figcaption class="cap"><span>Ground truth</span><span>target</span></figcaption></figure>
+        <figure class="small"><img id="r-unet" src="assets/cases/cju3y0pj-unet.png" width="480" height="480" alt="U-Net prediction"><figcaption class="cap"><span>U-Net</span><span id="r-unet-d">0.510</span></figcaption></figure>
+        <figure class="small"><img id="r-hybrid" src="assets/cases/cju3y0pj-hybrid.png" width="480" height="480" alt="HybridQTN prediction"><figcaption class="cap"><span>HybridQTN</span><span id="r-hybrid-d">0.973</span></figcaption></figure>
+      </div>
+
+      <div class="controls" role="group" aria-label="Compare masks">
+        <p class="ctl-title">Show on the frame</p>
+        <div class="seg" id="mask-pick">
+          <button type="button" data-mask="gt" aria-pressed="false">Ground truth</button>
+          <button type="button" data-mask="unet" aria-pressed="false">U-Net</button>
+          <button type="button" data-mask="hybrid" aria-pressed="true">HybridQTN</button>
+          <button type="button" data-mask="none" aria-pressed="false">Nothing</button>
         </div>
-    </header>
+        <p class="ctl-title">Test frame</p>
+        <div class="cases" id="case-pick">
+          <button type="button" data-case="cju3y0pj" aria-pressed="true" aria-label="Case 1: HybridQTN 0.973, U-Net 0.510"><img src="assets/cases/cju3y0pj.jpg" width="480" height="480" alt=""></button>
+          <button type="button" data-case="cju1c6yf" aria-pressed="false" aria-label="Case 2: HybridQTN 0.937, U-Net 0.516"><img src="assets/cases/cju1c6yf.jpg" width="480" height="480" alt=""></button>
+          <button type="button" data-case="cju8a1jt" aria-pressed="false" aria-label="Case 3: HybridQTN 0.949, U-Net 0.587"><img src="assets/cases/cju8a1jt.jpg" width="480" height="480" alt=""></button>
+          <button type="button" data-case="cju2pjb9" aria-pressed="false" aria-label="Case 4: HybridQTN 0.956, U-Net 0.736"><img src="assets/cases/cju2pjb9.jpg" width="480" height="480" alt=""></button>
+          <button type="button" data-case="cju1erep" aria-pressed="false" aria-label="Case 5: both models near perfect"><img src="assets/cases/cju1erep.jpg" width="480" height="480" alt=""></button>
+          <button type="button" data-case="cju2hfqn" aria-pressed="false" aria-label="Case 6: the U-Net wins"><img src="assets/cases/cju2hfqn.jpg" width="480" height="480" alt=""></button>
+        </div>
+        <p class="ctl-note" id="case-note" aria-live="polite">A small polyp the U-Net breaks into fragments; the hybrid finds all of it.</p>
+        <p class="ctl-fine">Real predictions from the seed-43 checkpoints on held-out Kvasir-SEG test images. Four large gains, one tie and one frame where the U-Net is better.</p>
+      </div>
 
-    <main class="container">
-        
-        <section class="section reveal">
-            <h2 data-i18n="section-about">Hakkımda</h2>
-            <div class="about-grid">
-                <p class="about-text" data-i18n="about-text">
-                    Merhaba, ben Yusuf. Türk-Alman Üniversitesi'nde Elektrik-Elektronik Mühendisliği 1. sınıf öğrencisiyim. Bilgisayar biliminin teorik temelleri ve rekabetçi programlama ile ilgileniyorum. Yapay zeka ve makine öğrenimi alanında projeler geliştirirken, aynı zamanda okulumun bilişim topluluğuna liderlik ediyorum.
-                </p>
-            </div>
-        </section>
+      <div class="sc-figs">
+        <figure class="fig fig-clip">
+          <video id="clip" muted loop playsinline autoplay preload="metadata" width="768" height="576" poster="assets/video/cvc-seq2-poster.jpg" aria-label="Colonoscopy sequence with the HybridQTN mask in blue, frame by frame">
+            <source src="assets/video/cvc-seq2.webm" type="video/webm">
+            <source src="assets/video/cvc-seq2.mp4" type="video/mp4">
+          </video>
+          <figcaption class="cap"><span>Never trained on this hospital's data: a CVC-ClinicDB sequence</span><span>mean Dice 0.805</span></figcaption>
+        </figure>
+        <figure class="fig">
+          <svg class="block-diagram" viewBox="0 0 720 230" role="img" aria-labelledby="bd-t">
+            <title id="bd-t">Diagram: U-Net encoder, then the bottleneck kernel stored as a chain of 11 small tensors, then the decoder</title>
+            <polygon points="10,30 120,70 120,150 10,190" class="trap"/>
+            <polygon points="710,30 600,70 600,150 710,190" class="trap"/>
+            <text x="60" y="222" text-anchor="middle">encoder</text>
+            <text x="660" y="222" text-anchor="middle">decoder</text>
+            <line x1="120" y1="110" x2="600" y2="110" class="bond"/>
+            <g class="legs">
+              <line x1="160" y1="110" x2="160" y2="70"/><line x1="200" y1="110" x2="200" y2="70"/><line x1="240" y1="110" x2="240" y2="70"/><line x1="280" y1="110" x2="280" y2="70"/><line x1="320" y1="110" x2="320" y2="70"/><line x1="360" y1="110" x2="360" y2="70"/><line x1="400" y1="110" x2="400" y2="70"/><line x1="440" y1="110" x2="440" y2="70"/><line x1="480" y1="110" x2="480" y2="70"/><line x1="520" y1="110" x2="520" y2="70"/><line x1="560" y1="110" x2="560" y2="70"/>
+            </g>
+            <g class="nodes"><circle cx="160" cy="110" r="13"/><circle cx="200" cy="110" r="13"/><circle cx="240" cy="110" r="13"/><circle cx="280" cy="110" r="13"/><circle cx="320" cy="110" r="13"/><circle cx="360" cy="110" r="13"/><circle cx="400" cy="110" r="13"/><circle cx="440" cy="110" r="13"/><circle cx="480" cy="110" r="13"/><circle cx="520" cy="110" r="13"/><circle cx="560" cy="110" r="13"/></g>
+            <text x="360" y="170" text-anchor="middle">11 small tensors, bond dimension 64</text>
+          </svg>
+          <figcaption class="cap"><span>The block in tensor-network notation</span><span>circles are tensors, lines are indices</span></figcaption>
+        </figure>
+        <figure class="fig fig-wide">
+          <img src="assets/img/fig-dice-hd95.png" width="1600" height="841" loading="lazy" alt="Chart: test Dice and HD95 for U-Net and HybridQTN, three seeds in three settings; every hybrid point is better">
+          <figcaption class="cap"><span>Three seeds × three settings</span><span>every line goes the same way</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <section class="section reveal">
-            <h2 data-i18n="section-experience">Profesyonel Deneyim</h2>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="card-header">
-                            <h3 data-i18n="exp-tdu-title">Yönetim Kurulu Başkanı</h3>
-                            <span class="date" data-i18n="exp-tdu-date">Haziran 2025 - Günümüz</span>
-                        </div>
-                        <h4 class="company">TDU Informatix Society</h4>
-                        <ul class="details">
-                            <li data-i18n="exp-tdu-desc1">Üniversite bilgisayar bilimleri topluluğunun yönetilmesi ve geniş çaplı hackathon organizasyonlarının düzenlenmesi.</li>
-                            <li data-i18n="exp-tdu-desc2">Vize/Final dönemlerinde 100+ kişilik gruplara C ve MATLAB üzerine teknik etütlerin verilmesi.</li>
-                            <li data-i18n="exp-tdu-desc3">Rekabetçi Programlama (CP) kültürünün oluşturulması ve olimpiyat takımlarının hazırlanması.</li>
-                            <li data-i18n="exp-tdu-desc4">Teknik proje ekiplerinin kurulmasına öncülük edilmesi ve üretim odaklı kulüp yapısının tesis edilmesi.</li>
-                        </ul>
-                    </div>
-                </div>
+  <!-- INDEX: everything else as book spines -->
+  <section class="index" id="work" aria-labelledby="h-work">
+    <div class="index-head">
+      <h2 id="h-work" data-reveal>Everything else</h2>
+      <p data-reveal>Research, open source, engineering, tools, teaching and events since 2022. Each spine with a link opens its code or page.</p>
+    </div>
+    <ul class="shelf" data-reveal>
+      <li><a href="https://github.com/egoistpizza/hybrid-qtn"><span class="t">HybridQTN</span><span class="k k-r">research</span></a></li>
+      <li><a href="https://github.com/egoistpizza/movement-segmentation-poc"><span class="t">Segmentation masks for movement</span><span class="k k-r">research</span></a></li>
+      <li><a href="https://github.com/neuroinformatics-unit/movement/pull/936"><span class="t">movement draft PR #936</span><span class="k k-o">open source</span></a></li>
+      <li><a href="https://qturkiye.org/qsummer-2026/"><span class="t">QSummer 2026, QWorld</span><span class="k k-r">quantum</span></a></li>
+      <li><a href="https://github.com/egoistpizza/KayraUAV"><span class="t">Kızagan fighting UAV</span><span class="k k-e">engineering</span></a></li>
+      <li><span class="nolink"><span class="t">Mithral air-defence turret</span><span class="k k-e">engineering</span></span></li>
+      <li><span class="nolink"><span class="t">Find, UWB people tracker</span><span class="k k-e">engineering</span></span></li>
+      <li><span class="nolink"><span class="t">Dice RNG on MSP430</span><span class="k k-e">engineering</span></span></li>
+      <li><a href="https://github.com/egoistpizza/stv-election-cli"><span class="t">stv-election-cli</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/LeetQuery"><span class="t">LeetQuery</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/night-light-toggle"><span class="t">Night Light Toggle</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/DFIS"><span class="t">DFIS font installer</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/EmergencyDownloader"><span class="t">EmergencyDownloader</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://ig-pronoun-checker.netlify.app/"><span class="t">Pronoun checker</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/BIST_Tracker"><span class="t">BIST tracker</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/AtaturkQuotesAPI"><span class="t">Atatürk quotes API</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://github.com/egoistpizza/EgoistBot"><span class="t">EgoistBot</span><span class="k k-o">tools</span></a></li>
+      <li><a href="https://egoistpizza.github.io/codex-ai-hackathon/"><span class="t">CODEX AI Hackathon</span><span class="k k-t">events</span></a></li>
+      <li><span class="nolink"><span class="t">Vibe Coding Hackathon</span><span class="k k-t">events</span></span></li>
+      <li><span class="nolink"><span class="t">SchlüsselRolle panels</span><span class="k k-t">events</span></span></li>
+      <li><span class="nolink"><span class="t">Plauderstunde</span><span class="k k-t">events</span></span></li>
+      <li><a href="https://github.com/egoistpizza/tdu-c-masterclass"><span class="t">C masterclass, finals</span><span class="k k-t">teaching</span></a></li>
+      <li><span class="nolink"><span class="t">C masterclass, midterms</span><span class="k k-t">teaching</span></span></li>
+      <li><span class="nolink"><span class="t">MATLAB masterclass</span><span class="k k-t">teaching</span></span></li>
+      <li><a href="https://github.com/egoistpizza/cp-workshop"><span class="t">Competitive programming</span><span class="k k-t">teaching</span></a></li>
+      <li><a href="https://infx.kulup.tau.edu.tr/"><span class="t">InformatiX website</span><span class="k k-o">web</span></a></li>
+      <li><a href="https://github.com/egoistpizza/codex-ai-hackathon"><span class="t">CODEX website</span><span class="k k-o">web</span></a></li>
+      <li><a href="https://github.com/egoistpizza/PythonDocs"><span class="t">PythonDocs</span><span class="k k-o">notes</span></a></li>
+      <li><a href="https://github.com/egoistpizza/RustDocs"><span class="t">RustDocs</span><span class="k k-o">notes</span></a></li>
+      <li><a href="https://github.com/egoistpizza/LaTeX-Docs"><span class="t">LaTeX-Docs</span><span class="k k-o">notes</span></a></li>
+    </ul>
+  </section>
 
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="card-header">
-                            <h3 data-i18n="exp-kayra-title">Teknik Takım Lideri</h3>
-                            <span class="date" data-i18n="exp-kayra-date">Mart 2022 - Şubat 2023</span>
-                        </div>
-                        <h4 class="company">KAYRA Project</h4>
-                        <ul class="details">
-                            <li data-i18n="exp-kayra-desc1">TEKNOFEST süreçlerinde teknik dokümantasyon, Ar-Ge yönetimi ve proje koordinasyonunun sağlanması.</li>
-                            <li data-i18n="exp-kayra-desc2">Otonom uçuş algoritmaları ve makine öğrenmesi veri setlerinin oluşturulması/işlenmesi.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- ABOUT: side facts, wide paragraph, two records -->
+  <section class="about" id="about" aria-labelledby="h-about">
+    <h2 id="h-about" class="about-h" data-reveal>About</h2>
+    <div class="about-row">
+      <dl class="side-facts" data-reveal>
+        <div><dt>Based in</dt><dd>Istanbul, GMT+3</dd></div>
+        <div><dt>Studying</dt><dd>EEE, 2024–2029, and Computer Engineering double major, Turkish-German University</dd></div>
+        <div><dt>Languages</dt><dd>Turkish, English, German</dd></div>
+      </dl>
+      <p class="about-p" data-reveal>I want neural networks that are smaller without seeing less. Tensor networks, built to describe entangled quantum systems, store a large operator as a chain of small tensors, and the bond dimension sets how much correlation can pass along it. Before HybridQTN I captained a high-school UAV team and wrote its real-time target detection. In summer 2026 I completed QSummer, QWorld's quantum programming school.</p>
+    </div>
+    <div class="about-row records">
+      <p class="rec-word" data-reveal>Record</p>
+      <div class="rec-lists">
+        <div data-reveal>
+          <h3>Teaching</h3>
+          <ul class="rec">
+            <li><span>C midterm masterclass, 80–90 live</span><span>Nov 2025</span></li>
+            <li><span>MATLAB masterclass, 30 live</span><span>Nov 2025</span></li>
+            <li><span>Competitive programming, 10 workshops</span><span>Fall 2025</span></li>
+            <li><span>C masterclass for finals, ~100 live</span><span>Jan 2026</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <h3>Organising</h3>
+          <ul class="rec">
+            <li><span>InformatiX Club, board member</span><span>2025</span></li>
+            <li><span>Vibe Coding Hackathon, 15 teams</span><span>Nov 2025</span></li>
+            <li><span>InformatiX Club, chair</span><span>2025–26</span></li>
+            <li><span>SchlüsselRolle panels</span><span>Mar 2026</span></li>
+            <li><span>CODEX AI Hackathon, national</span><span>May 2026</span></li>
+            <li><span>KAYRA UAV Team, captain</span><span>2022–23</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section class="section reveal">
-            <h2 data-i18n="section-projects">Teknik Projeler</h2>
+  <!-- GALLERY: small frames, wide space -->
+  <section class="gallery" id="photos" aria-labelledby="h-photos">
+    <h2 id="h-photos" class="g-title" data-reveal>From the room <span class="count">14 photos</span></h2>
+    <div class="g-row" tabindex="0" aria-label="Photos, scroll sideways">
+      <img src="assets/img/talk-thanks.jpg" width="1400" height="933" loading="lazy" alt="Yusuf in front of the closing slide">
+      <img src="assets/img/talk-gesture.jpg" width="1000" height="667" loading="lazy" alt="Explaining the method on stage">
+      <img src="assets/img/codex-1.jpg" width="1000" height="563" loading="lazy" alt="A team presenting at CODEX">
+      <img src="assets/img/team-stage.jpg" width="1200" height="800" loading="lazy" alt="The HybridQTN team on stage">
+      <img src="assets/img/talk-stage.jpg" width="1000" height="667" loading="lazy" alt="Yusuf and a teammate speaking">
+      <img src="assets/img/codex-3.jpg" width="1000" height="563" loading="lazy" alt="Presentation at CODEX demo day">
+      <img src="assets/img/audience.jpg" width="1000" height="667" loading="lazy" alt="Yusuf listening in the audience">
+      <img src="assets/img/batch-stage.jpg" width="1200" height="800" loading="lazy" alt="The whole AI Projects #10 batch on stage">
+      <img src="assets/img/codex-5.jpg" width="563" height="1000" loading="lazy" alt="Award at CODEX">
+      <img src="assets/img/talk-qa.jpg" width="1200" height="800" loading="lazy" alt="Methodology talk">
+      <img src="assets/img/codex-6.jpg" width="1000" height="563" loading="lazy" alt="Jury and finalists at CODEX">
+      <img src="assets/img/talk-room.jpg" width="1200" height="800" loading="lazy" alt="The room during the talk">
+      <img src="assets/img/codex-4.jpg" width="750" height="1000" loading="lazy" alt="Speaker at CODEX">
+      <img src="assets/img/batch-garden.jpg" width="1200" height="800" loading="lazy" alt="The batch in the garden">
+    </div>
+  </section>
 
-            <div class="card reveal">
-                <h3 data-i18n="proj-kizagan-title">Kızagan (İnsansız Hava Aracı)</h3>
-                <p data-i18n="proj-kizagan-desc">TEKNOFEST kapsamında geliştirilen, it dalaşı (dogfight) kabiliyetine sahip tam otonom RC uçak. PyTorch, YOLO ve OpenCV ile gerçek zamanlı nesne tespiti ve takibi sağlanmaktadır.</p>
-                <div class="tags">
-                    <span>PyTorch</span><span>YOLO</span><span>OpenCV</span><span>Autonomous Flight</span>
-                </div>
-            </div>
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact" class="sr-only">Contact</h2>
+    <p class="contact-s" data-reveal>I'm looking for research internships in efficient deep learning, tensor networks and computer vision.</p>
+    <img class="contact-p" src="assets/img/portrait.jpg" width="900" height="600" loading="lazy" alt="Portrait of Yusuf Özçetin" data-reveal>
+    <div class="contact-l" data-reveal>
+      <p class="contact-q">Working on something close to this?</p>
+      <p><a class="ul" href="mailto:yusufozcetin@proton.me">yusufozcetin@proton.me</a></p>
+      <p><a class="ul" href="https://www.linkedin.com/in/yusuf-ozcetin/">LinkedIn</a></p>
+      <p class="contact-c">Istanbul, GMT+3. Turkish, English or German.</p>
+    </div>
+  </section>
+</main>
 
-            <div class="card reveal">
-                <h3 data-i18n="proj-mithral-title">Mithral (Hava Savunma Sistemi)</h3>
-                <p data-i18n="proj-mithral-desc">TEKNOFEST Hava Savunma Sistemleri yarışması için geliştirilen otonom taret sistemi. Gömülü sistemler ve görüntü işleme entegrasyonu ile hedeflere en hızlı tepki süresiyle atış yapabilmektedir.</p>
-                <div class="tags">
-                    <span>Embedded Systems</span><span>Real-time Tracking</span><span>YOLO</span><span>C++</span>
-                </div>
-            </div>
+<footer class="tiles">
+  <div class="tile t-state">
+    <p class="t-big">Built by hand in HTML, CSS and a little JavaScript.</p>
+    <p class="t-legal">© 2026 Yusuf Özçetin. Showcase photographs from inzva AI Projects #10. Polyp images from Kvasir-SEG (Jha et al., 2020), shown for research illustration.</p>
+  </div>
+  <nav class="tile t-nav" aria-label="Sections">
+    <ul><li><a href="#hybridqtn">HybridQTN</a></li><li><a href="#work">Everything else</a></li><li><a href="#about">About</a></li><li><a href="#photos">Photos</a></li><li><a href="https://github.com/egoistpizza">GitHub</a></li></ul>
+  </nav>
+  <div class="tile t-time"><p>Istanbul</p><p class="t-clock" id="clock">GMT+3</p></div>
+  <div class="tile t-mail"><a href="mailto:yusufozcetin@proton.me">yusufozcetin@proton.me</a></div>
+  <div class="tile t-word" aria-hidden="true"><span>Yusuf Özçetin</span></div>
+  <a class="tile t-cta" href="mailto:yusufozcetin@proton.me?subject=Research%20internship">
+    <span>Write to me</span>
+    <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M10 38 L38 10 M16 10 H38 V32" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+  </a>
+</footer>
 
-            <div class="card reveal">
-                <h3 data-i18n="proj-find-title">Find (Kayıp Bulma ve Takip)</h3>
-                <p data-i18n="proj-find-desc">TEKNOFEST Turizm Teknolojileri alanı için TDU Informatix bünyesinde geliştirilen proje. UWB ve ESP teknolojileri ile 10-20 cm hassasiyetle; gürültülü ortamlarda ve afetlerde kayıp tespiti sağlayan prototip cihaz.</p>
-                <div class="tags">
-                    <span>UWB</span><span>ESP32</span><span>IEEE 802.11</span><span>Signal Processing</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section reveal">
-            <h2 data-i18n="section-education">Eğitim & Sertifikalar</h2>
-            
-            <div class="card reveal">
-                <h3 data-i18n="edu-uni-title">Türk-Alman Üniversitesi</h3>
-                <p data-i18n="edu-uni-desc">Elektrik-Elektronik Mühendisliği (Almanca) - Lisans</p>
-                <span class="date" data-i18n="edu-uni-date">Beklenen Mezuniyet: 2029</span>
-            </div>
-
-            <div class="card reveal">
-                <h3 data-i18n="cert-bielefeld-title">Universität Bielefeld - Uluslararası Yaz Okulu</h3>
-                <p data-i18n="cert-bielefeld-desc">İleri Seviye Almanca (B2/C1) ve Mekatronik Uzmanlık Projesi (4 ECTS). Ağustos 2025.</p>
-            </div>
-
-            <div class="card reveal">
-                <h3 data-i18n="cert-stanford-title">Stanford University - Machine Learning</h3>
-                <p data-i18n="cert-stanford-desc">Authorized by Stanford University and offered through Coursera. (Aug 2022)</p>
-            </div>
-        </section>
-
-        <section class="section reveal">
-            <h2 data-i18n="section-skills">Teknik Yetkinlikler</h2>
-            <div class="devicon-grid">
-                <div class="dev-item" title="Python"><i class="devicon-python-plain"></i><span>Python</span></div>
-                <div class="dev-item" title="C++"><i class="devicon-cplusplus-plain"></i><span>C++</span></div>
-                <div class="dev-item" title="Rust"><i class="devicon-rust-plain"></i><span>Rust</span></div>
-                <div class="dev-item" title="PyTorch"><i class="devicon-pytorch-original"></i><span>PyTorch</span></div>
-                <div class="dev-item" title="TensorFlow"><i class="devicon-tensorflow-original"></i><span>TensorFlow</span></div>
-                <div class="dev-item" title="OpenCV"><i class="devicon-opencv-plain"></i><span>OpenCV</span></div>
-                <div class="dev-item" title="Embedded C"><i class="devicon-c-plain"></i><span>Embedded C</span></div>
-                <div class="dev-item" title="Git"><i class="devicon-git-plain"></i><span>Git</span></div>
-                <div class="dev-item" title="Linux"><i class="devicon-linux-plain"></i><span>Linux</span></div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <p>© 2026 Yusuf Özçetin. <a href="https://github.com/egoistpizza/egoistpizza.github.io" target="_blank">Source Code (GPLv3)</a></p>
-    </footer>
-
-    <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
-    <script src="script.js"></script>
+<script src="main.js?v=3" defer></script>
 </body>
 </html>
